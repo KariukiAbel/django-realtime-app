@@ -41,7 +41,8 @@ INSTALLED_APPS = [
     # third party apps
     'app.apps.AppConfig',
     'rest_framework',
-    # 'corsheaders',
+    'corsheaders',
+    'channels',
 ]
 
 MIDDLEWARE = [
@@ -54,8 +55,13 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     
     # adding cors middleware
-    # 'corsheaders.middleware.CorsMiddleWare',
+    'corsheaders.middleware.CorsMiddleWare',
 ]
+
+# configuring CORS_HEADERS
+CORS_ORIGIN_WHITELIST = {
+    'localhost:3000',
+}
 
 ROOT_URLCONF = 'chatapp.urls'
 
@@ -75,7 +81,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'chatapp.wsgi.application'
+WSGI_APPLICATION = 'chatapp.wsgi.application' # for http requests
 
 
 # Database
@@ -126,3 +132,15 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
+
+
+ASGI_APPLICATION = "chatapp.routing.application" # handles websockets that are async
+
+CHANNEL_LAYERS = {
+    'default':{
+        'BACKEND':'channels_redis.core.RedisChannelLayer',
+        'CONFIG': {
+            "HOSTS":[('127.0.0.1', 6379)],
+        },
+    },
+}
