@@ -41,7 +41,7 @@ INSTALLED_APPS = [
     # third party apps
     'app.apps.AppConfig',
     'rest_framework',
-    'corsheaders',
+    # 'corsheaders',
 ]
 
 MIDDLEWARE = [
@@ -54,7 +54,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     
     # adding cors middleware
-    'corsheaders.middleware.CorsMiddleWare',
+    # 'corsheaders.middleware.CorsMiddleWare',
 ]
 
 ROOT_URLCONF = 'chatapp.urls'

@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from rest_framework import generics
 from .models import AppModel
-from serializer import AppModelSerializer
+from .serializer import AppModelSerializer
 
 # Create your views here.
 class List(generics.ListAPIView):
