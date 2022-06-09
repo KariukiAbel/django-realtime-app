@@ -134,7 +134,7 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 
-ASGI_APPLICATION = "chatapp.routing.application" # handles websockets that are async
+ASGI_APPLICATION = "chatapp.routing.application" # handles web-sockets that are async
 
 CHANNEL_LAYERS = {
     'default':{
