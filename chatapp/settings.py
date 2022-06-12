@@ -60,7 +60,7 @@ MIDDLEWARE = [
 
 # configuring CORS_HEADERS
 CORS_ORIGIN_WHITELIST = {
-    'localhost:3000',
+    u"localhost:3000",
 }
 
 ROOT_URLCONF = 'chatapp.urls'
