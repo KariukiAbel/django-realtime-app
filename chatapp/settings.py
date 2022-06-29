@@ -59,9 +59,13 @@ MIDDLEWARE = [
 ]
 
 # configuring CORS_HEADERS
-CORS_ORIGIN_WHITELIST = {
-    u"localhost:3000",
-}
+# CORS_ORIGIN_WHITELIST = (
+#     'localhost:3000'
+#     )
+CORS_ORIGIN_WHITELIST = (
+    u'http://localhost:3000',
+    u'http://127.0.0.1:3000',
+)
 
 ROOT_URLCONF = 'chatapp.urls'
 
@@ -140,7 +144,7 @@ CHANNEL_LAYERS = {
     'default':{
         'BACKEND':'channels_redis.core.RedisChannelLayer',
         'CONFIG': {
-            "HOSTS":[('127.0.0.1', 6379)],
+            "HOSTS":[('localhost', 6379)],
         },
     },
 }
